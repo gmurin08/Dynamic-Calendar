@@ -1,14 +1,8 @@
 
-const readline = require('readline').createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  });
-console.log("JS Calendar Prototype\n");
-
 const wkd = ['Su','Mo','Tu','We','Th','Fr','Sa']
 const mth = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 dt = new Date()
-month = mth[dt.getMonth()+offset]
+//month = mth[dt.getMonth()+offset]
 var offset = 0
 function populateDays(){
     pivot = new Date(`${mth[dt.getMonth()+offset]} 1, 2023`).getDay()
