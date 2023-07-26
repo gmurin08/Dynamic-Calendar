@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react"
+import DateEntry from "./DateEntry"
 export default function Calendar() {
-    const wkd = ['Su','Mo','Tu','We','Th','Fr','Sa']
+    //const wkd = ['Su','Mo','Tu','We','Th','Fr','Sa']
     const mth = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    const dt = new Date()
     const [offset,setOffset] = useState(0)
     const [rows,setRows] = useState(Array(6).fill().map(() => Array(7).fill(0)))
+    const [done, setDone] = useState(false)
+    const [year,setYear] = useState(new Date().getFullYear())
 
-
+    const handleMonthButtonClick = inc =>{
+        setOffset(offset+inc)
+    }
     useEffect(()=>{
         const dt = new Date()
         const mth = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -29,15 +33,21 @@ export default function Calendar() {
             for(let j = 0; j < 7; j ++)
             upd[i][j] = new Date(right.setDate(right.getDate()+1))
         }
+        setYear(new Date(`${mth[dt.getMonth()+offset]} 1, 2023`).getFullYear())
         setRows(upd)
+        setDone(true)
     },[offset])
-  return (
-    <div>{rows.map((row)=>{
-        return(<div>{
-            row.map((col)=>{
-            return(<div>{col}</div>)
+    if(done)
+  {return (<>
+    <div>{mth[new Date().getMonth()+offset] + " " + year}</div>
+    <div>{rows.map((row,i)=>{
+        return(<div key={i}>{
+            row.map((col,j)=>{
+            return(<DateEntry key={j} date={col}/>)
         })
     }</div>)
     })}</div>
-  )
+    <button onClick={()=>handleMonthButtonClick(-1)}>Prev</button>
+    <button onClick={()=>handleMonthButtonClick(1)}>Next</button>
+  </>)}
 }
