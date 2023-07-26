@@ -6,19 +6,21 @@ export default function Calendar() {
     const [offset,setOffset] = useState(0)
     const [rows,setRows] = useState(Array(6).fill().map(() => Array(7).fill(0)))
     const [done, setDone] = useState(false)
+    const dt = new Date()
+    const currDt = new Date(dt.setMonth(dt.getMonth()+offset))
     //const [year,setYear] = useState(new Date().getFullYear())
-    const date = new Date()
     const handleMonthButtonClick = inc =>{
         setOffset(offset+inc)
     }
     useEffect(()=>{
         const dt = new Date()
+        const currDt = new Date(dt.setMonth(dt.getMonth()+offset))
         const mth = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-        const pivot = new Date(`${mth[dt.getMonth()+offset]} 1, ${new Date(dt.setMonth(dt.getMonth()+offset)).getFullYear()}`).getDay()
-        const left = new Date(`${mth[dt.getMonth()+offset]} 1, ${new Date(dt.setMonth(dt.getMonth()+offset)).getFullYear()}`)
-        const right = new Date(`${mth[dt.getMonth()+offset]} 1, ${new Date(dt.setMonth(dt.getMonth()+offset)).getFullYear()}`)
+        const pivot = new Date(`${mth[currDt.getMonth()]} 1, ${currDt.getFullYear()}`).getDay()
+        const left = new Date(`${mth[currDt.getMonth()]} 1, ${currDt.getFullYear()}`)
+        const right = new Date(`${mth[currDt.getMonth()]} 1, ${currDt.getFullYear()}`)
         let upd = Array(6).fill().map(()=>Array(7).fill(0))
-        upd[0][pivot] = new Date(`${mth[dt.getMonth()+offset]} 1, ${new Date(dt.setMonth(dt.getMonth()+offset)).getFullYear()}`)
+        upd[0][pivot] = new Date(`${mth[currDt.getMonth()]} 1, ${currDt.getFullYear()}`)
         var cpy = pivot
         while(cpy>0){
             cpy -= 1
@@ -40,22 +42,29 @@ export default function Calendar() {
     if(done)
   {return (<>
     <div>
+    <table>
+    <thead>
     <tr>
-    <th colSpan={100}>{mth[new Date().getMonth()+offset] + " " + new Date(date.setMonth(date.getMonth()+offset)).getFullYear()}</th>
+    <th colSpan={100}>{mth[currDt.getMonth()] + " " + currDt.getFullYear()}</th>
     </tr>
     <tr>
         {wkd.map((day, d)=>{
             return(<th key={d}>{day}</th>)
         })}
     </tr>
+    </thead>
+    <tbody>
     {rows.map((row,i)=>{
         return(<tr key={i}>{
             row.map((col,j)=>{
-            return(<td key={j}><DateEntry key={j} date={col}/></td>)
-        })
-    }</tr>)
+            return(<td key={j}><DateEntry key={j} currDt={currDt} date={col}/></td>)
+        })}
+              </tr>)
     })}
+    </tbody>
+    </table>
     <button onClick={()=>handleMonthButtonClick(-1)}>Prev</button>
     <button onClick={()=>handleMonthButtonClick(1)}>Next</button>
+    
   </div></>)}
 }
