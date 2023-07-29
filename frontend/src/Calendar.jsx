@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import DateEntry from "./DateEntry"
+import './calendar.css'
 export default function Calendar() {
     const wkd = ['Su','Mo','Tu','We','Th','Fr','Sa']
     const mth = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -8,6 +9,7 @@ export default function Calendar() {
     const [done, setDone] = useState(false)
     const dt = new Date()
     const currDt = new Date(dt.setMonth(dt.getMonth()+offset))
+    const [dtSelected,setDtSelected] = useState(null)
     //const [year,setYear] = useState(new Date().getFullYear())
     const handleMonthButtonClick = inc =>{
         setOffset(offset+inc)
@@ -41,30 +43,39 @@ export default function Calendar() {
     },[offset])
     if(done)
   {return (<>
-    <div>
-    <table>
-    <thead>
-    <tr>
-    <th colSpan={100}>{mth[currDt.getMonth()] + " " + currDt.getFullYear()}</th>
-    </tr>
-    <tr>
-        {wkd.map((day, d)=>{
-            return(<th key={d}>{day}</th>)
-        })}
-    </tr>
-    </thead>
-    <tbody>
-    {rows.map((row,i)=>{
-        return(<tr key={i}>{
-            row.map((col,j)=>{
-            return(<td key={j}><DateEntry key={j} currDt={currDt} date={col}/></td>)
-        })}
-              </tr>)
-    })}
-    </tbody>
-    </table>
-    <button onClick={()=>handleMonthButtonClick(-1)}>Prev</button>
-    <button onClick={()=>handleMonthButtonClick(1)}>Next</button>
-    
-  </div></>)}
+    <div className="flip-card">
+        <div className="card-front">
+            <div className="front">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colSpan={100}><h1>{mth[currDt.getMonth()] + " " + currDt.getFullYear()}</h1></th>
+                        </tr>
+                        <tr >
+                            {wkd.map((day, d)=>{
+                                return(<th key={d}>{day}</th>)
+                            })}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {rows.map((row,i)=>{
+                            return(<tr key={i}>{
+                                row.map((col,j)=>{
+                                return(<td key={j}><DateEntry key={j} activeDt={dtSelected} setDtSelected={setDtSelected} currDt={currDt} date={col}/></td>)
+                            })}
+                                </tr>)
+                        })}
+                    </tbody>
+                </table>
+                <button onClick={()=>handleMonthButtonClick(-1)}>Prev</button>
+                <button onClick={()=>handleMonthButtonClick(1)}>Next</button>
+            
+            </div>
+            {/* <div className="card-back">
+                <h1>{mth[currDt.getMonth()] + ", " + currDt.getDay() + " " + currDt.getFullYear()}</h1>
+            </div> */}
+            {dtSelected && <div>Current date is {mth[dtSelected?.getMonth()] +" " + dtSelected?.getDate() +", " +dtSelected?.getFullYear()}</div>}
+        </div>
+    </div>
+  </>)}
 }
