@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import DateEntry from "./DateEntry"
 import './calendar.css'
+import {times} from '../../times.js'
 export default function Calendar() {
     const wkd = ['Su','Mo','Tu','We','Th','Fr','Sa']
     const mth = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -61,8 +62,14 @@ export default function Calendar() {
                         {rows.map((row,i)=>{
                             return(<tr key={i}>{
                                 row.map((col,j)=>{
-                                return(<td key={j}><DateEntry key={j} activeDt={dtSelected} setDtSelected={setDtSelected} currDt={currDt} date={col}/></td>)
-                            })}
+                                return(
+                                    <td key={j}>
+                                        <DateEntry key={j} activeDt={dtSelected} 
+                                        setDtSelected={setDtSelected} currDt={currDt} date={col}/>
+                                    </td>
+                                        )
+                            })
+                            }
                                 </tr>)
                         })}
                     </tbody>
@@ -74,7 +81,13 @@ export default function Calendar() {
             {/* <div className="card-back">
                 <h1>{mth[currDt.getMonth()] + ", " + currDt.getDay() + " " + currDt.getFullYear()}</h1>
             </div> */}
-            {dtSelected && <div>Current date is {mth[dtSelected?.getMonth()] +" " + dtSelected?.getDate() +", " +dtSelected?.getFullYear()}</div>}
+            {dtSelected && 
+            <div>
+            <div>Time Slots Available On {mth[dtSelected?.getMonth()] + " " + dtSelected?.getDate() + ", " +dtSelected?.getFullYear()}</div>
+                <div>{dtSelected ? <div>{times[0].times}</div>:<div></div>}</div>
+            </div>
+            }
+            
         </div>
     </div>
   </>)}
