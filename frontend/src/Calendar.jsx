@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react"
 import DateEntry from "./DateEntry"
 import './calendar.css'
-import {times} from '../../times.js'
+import DailySchedule from "./DailySchedule"
 export default function Calendar() {
     const wkd = ['Su','Mo','Tu','We','Th','Fr','Sa']
     const mth = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     const [offset,setOffset] = useState(0)
     const [rows,setRows] = useState(Array(6).fill().map(() => Array(7).fill(0)))
     const [done, setDone] = useState(false)
+
     const dt = new Date()
     const currDt = new Date(dt.setMonth(dt.getMonth()+offset))
     const [dtSelected,setDtSelected] = useState(null)
@@ -15,6 +16,7 @@ export default function Calendar() {
     const handleMonthButtonClick = inc =>{
         setOffset(offset+inc)
     }
+
     useEffect(()=>{
         const dt = new Date()
         const currDt = new Date(dt.setMonth(dt.getMonth()+offset))
@@ -82,10 +84,7 @@ export default function Calendar() {
                 <h1>{mth[currDt.getMonth()] + ", " + currDt.getDay() + " " + currDt.getFullYear()}</h1>
             </div> */}
             {dtSelected && 
-            <div>
-            <div>Time Slots Available On {mth[dtSelected?.getMonth()] + " " + dtSelected?.getDate() + ", " +dtSelected?.getFullYear()}</div>
-                <div>{dtSelected ? <div>{times[0].times}</div>:<div></div>}</div>
-            </div>
+                <DailySchedule dtSelected={dtSelected}/>
             }
             
         </div>
