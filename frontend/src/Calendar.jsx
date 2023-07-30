@@ -42,7 +42,6 @@ export default function Calendar() {
         }
         setRows(upd)
         setDone(true)
-        
     },[offset])
     if(done)
   {return (<>
