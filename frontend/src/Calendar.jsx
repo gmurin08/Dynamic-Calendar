@@ -1,26 +1,28 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react"
 import DateEntry from "./DateEntry"
-import './calendar.css'
+//import './calendar.css'
 import DailySchedule from "./DailySchedule"
-export default function Calendar() {
+export default function Calendar({ currDt, setCurrDt, dtSelected, setDtSelected }) {
     const wkd = ['Su','Mo','Tu','We','Th','Fr','Sa']
     const mth = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     const [offset,setOffset] = useState(0)
     const [rows,setRows] = useState(Array(6).fill().map(() => Array(7).fill(0)))
     const [done, setDone] = useState(false)
-
-    const dt = new Date()
-    const currDt = new Date(dt.setMonth(dt.getMonth()+offset))
-    const [dtSelected,setDtSelected] = useState(null)
-    //const [year,setYear] = useState(new Date().getFullYear())
+    //const dt = new Date()
+    //const currDt = new Date(dt.setMonth(dt.getMonth()+offset))
+    //
     const handleMonthButtonClick = inc =>{
         setOffset(offset+inc)
     }
 
     useEffect(()=>{
         const dt = new Date()
-        const currDt = new Date(dt.setMonth(dt.getMonth()+offset))
+        dt.setDate(1)
+        dt.setMonth(dt.getMonth()+offset)
         const mth = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        const updatedDt = new Date(dt)
+        //const updatedDt = new Date(`${mth[dt.getMonth()+offset]} 1, ${dt.getFullYear()}`)
         const pivot = new Date(`${mth[currDt.getMonth()]} 1, ${currDt.getFullYear()}`).getDay()
         const left = new Date(`${mth[currDt.getMonth()]} 1, ${currDt.getFullYear()}`)
         const right = new Date(`${mth[currDt.getMonth()]} 1, ${currDt.getFullYear()}`)
@@ -40,6 +42,8 @@ export default function Calendar() {
             for(let j = 0; j < 7; j ++)
             upd[i][j] = new Date(right.setDate(right.getDate()+1))
         }
+        console.log(currDt, offset)
+        setCurrDt(updatedDt)
         setRows(upd)
         setDone(true)
     },[offset])
