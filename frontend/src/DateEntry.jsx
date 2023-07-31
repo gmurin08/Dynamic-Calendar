@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
+import { times } from "../../times"
 export default function DateEntry(props) {
     const isActive = props.date.getMonth() == props.currDt.getMonth()
+    const isAvailable = times?.get(props.date.getTime())?.times?.length > 0
     const activeStyle = {color:"black"}
     const inactiveStyle = {color:'gray'}
     const selStyle = {color:'red'}
@@ -12,12 +14,12 @@ export default function DateEntry(props) {
     if (isActive && isSelected){
       style = selStyle
     }
-    if(!isActive){
+    if((!isActive)||(isActive && !isAvailable)){
       style = inactiveStyle
     }
     
   return (
-    <div onClick={isActive ? ()=>props.setDtSelected(props.date):null}
+    <div onClick={isActive && isAvailable ? ()=>props.setDtSelected(props.date):null}
      style={style}>
       {props.date.getDate()}
      </div>

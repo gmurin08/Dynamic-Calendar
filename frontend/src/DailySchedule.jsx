@@ -21,12 +21,12 @@ export default function DailySchedule(props) {
                     if (time == 12){
                         time = "12:00p"
                     }else{
-                        time = (time - 12).toString() + ":00p\n"
+                        time = (time - 12).toString() + ":00p \n"
                     }
-                    setAfternoonTimes(time)
+                    setAfternoonTimes(afternoonTimes=>[...afternoonTimes,time])
                 }else{
-                    time = (time-12).toString() + ":00p\n"
-                    setEveningTimes(time)
+                    time = (time-12).toString() + ":00p \n"
+                    setEveningTimes(eveningTimes=>[...eveningTimes,time])
                 }
             })
         }
@@ -34,12 +34,19 @@ export default function DailySchedule(props) {
 
 
   if(dtSelected){return (<>
-    <div><b>Times Available on {mth[dtSelected.getMonth()] + ", " + props.dtSelected.getDate() + " " + dtSelected.getFullYear()}</b></div>
-    <div>Morning</div>
-        <div>{morningTimes}</div>
-    <div>Afternoon</div>
-        <div>{afternoonTimes}</div>
-    <div>Evening</div>
-        <div>{eveningTimes}</div>
+    <h2>Availability on {mth[dtSelected.getMonth()] + ", " + props.dtSelected.getDate() + " " + dtSelected.getFullYear()}</h2>
+    <h3>Morning</h3>
+        {morningTimes?.length > 0  ? morningTimes.map((time,i)=>{
+            return <div key={i}>{time}</div>
+        }):(<div>Booked</div>)}
+    
+    <h3>Afternoon</h3>
+    {afternoonTimes?.length > 0  ? afternoonTimes.map((time,i)=>{
+            return <div key={i}>{time}</div>
+        }):(<div>Booked</div>)}
+    <h3>Evening</h3>
+    {eveningTimes?.length > 0 ? eveningTimes.map((time,i)=>{
+            return <div key={i}>{time}</div>
+        }):(<div>Booked</div>)}
   </>)}
 }
