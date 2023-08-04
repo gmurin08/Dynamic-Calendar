@@ -6,14 +6,14 @@ export default function DailySchedule(props) {
     const [morningTimes, setMorningTimes] = useState([])
     const [afternoonTimes, setAfternoonTimes] = useState([])
     const [eveningTimes, setEveningTimes] = useState([])
-    const [test,setTest] = useState([])
+    const [timesArr,setTimesArr] = useState([])
     const dtSelected = props.dtSelected
     useEffect(()=>{
         // Check for times here before setting to avoid undefined assignment
         setAfternoonTimes([]),setMorningTimes([]),setEveningTimes([])
-        setTest(times.get(dtSelected.getTime()).times)
-        if (test.length>0){
-            test.forEach(time=>{
+        setTimesArr(times.get(dtSelected.getTime()).times)
+        if (timesArr.length>0){
+            timesArr.forEach(time=>{
                 if(time <12){
                     time = time.toString() + ":00a\n"
                     setMorningTimes(morningTimes=>[...morningTimes,time])
@@ -30,7 +30,7 @@ export default function DailySchedule(props) {
                 }
             })
         }
-    },[dtSelected,test])
+    },[dtSelected,timesArr])
 
 
   if(dtSelected){return (<>
