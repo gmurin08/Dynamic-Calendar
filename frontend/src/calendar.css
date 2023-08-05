@@ -1,15 +1,119 @@
+.arrow{
+    width:20px;
+}
+
+.booked-box{
+    background-color: rgb(246, 245, 245);
+    width:100px;
+    height:30px;
+    color:lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight:100;
+    border-radius: 10px;
+    padding:5px;
+    margin:5px;
+}
+
+.btn-container{
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30% 0px 30%;
+    border-image: linear-gradient(to right, black, blue);
+    padding-bottom: 30px;
+}
+
+
+.cal-ctr{
+    margin-left:auto;
+    margin-right:auto;
+    width:100%;
+}
+
 .calendar{
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Montserrat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    width:100%;
+}
+
+.calendar-nav-btn{
+    border:none;
+    background-color: transparent;
+}
+
+.days{
+    color:black;
+}
+
+.dates{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    margin:5px 10px ;
+    width:20px;
+    height:20px;
+}
+
+.dates:hover{
+    transform: scale(120%);
+}
+
+.date-span{
+    border-bottom: 1px solid blue;
+}
+
+.front{
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.calendar-nav-btn{
-    border:none;
+
+.schedule-container{
+    padding-left: 20px;
 }
 
-.cal{
-    outline: solid blue 1px;
+.time-box{
+    background-color: rgb(87, 76, 206);
+    width:140px;
+    height:40px;
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight:100;
+    border-radius: 10px;
+    padding:5px;
+    margin:10px 5px;
 }
+
+.time-box:hover{
+    background-color: rgb(64, 57, 143);
+    cursor: pointer;
+}
+
+.time-container{
+    display: flex;
+    grid-template-columns: 1fr 1fr  1fr 1fr;
+}
+
+@media only screen and (max-width: 600px) {
+    .time-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+  }
+
+
+
+
+
+
+
   

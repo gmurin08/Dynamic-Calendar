@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react"
 import DateEntry from "./DateEntry"
 import './calendar.css'
+import back from './assets/left-arrow.png'
+import forward from './assets/right-arrow.png'
 import DailySchedule from "./DailySchedule"
 export default function Calendar() {
     const wkd = ['Su','Mo','Tu','We','Th','Fr','Sa']
@@ -56,14 +58,14 @@ export default function Calendar() {
   {
     return (<>
     <div className="calendar">
-        <div className="cal">
+        <div className="cal-ctr">
             <div className="front">
                 <table>
                     <thead>
-                        <tr>
-                            <th colSpan={100}><h1 className="date-h1">{mth[currDt.getMonth()] + " " + currDt.getFullYear()}</h1></th>
+                        <tr className="head-container">
+                            <th colSpan={100}><u><h1 className="date-h1">{mth[currDt.getMonth()] + " " + currDt.getFullYear()}</h1></u></th>
                         </tr>
-                        <tr >
+                        <tr className="days">
                             {wkd.map((day, d)=>{
                                 return(<th key={d}>{day}</th>)
                             })}
@@ -85,15 +87,16 @@ export default function Calendar() {
                         })}
                     </tbody>
                 </table>
-                <button className='calendar-nav-btn' onClick={()=>handleMonthButtonClick(-1)}>Prev</button>
-                <button className='calendar-nav-btn' onClick={()=>handleMonthButtonClick(1)}>Next</button>
-            
             </div>
-
+            <div className="btn-container">
+                <button className='calendar-nav-btn' onClick={()=>handleMonthButtonClick(-1)}><img className='arrow'  src={back}/></button>
+                <button className='calendar-nav-btn' onClick={()=>handleMonthButtonClick(1)}><img className='arrow' src={forward}/></button>
+            </div>
+            <div className="schedule-container">
             {dtSelected && 
                 <DailySchedule dtSelected={dtSelected}/>
             }
-            
+            </div>
         </div>
     </div>
   </>)}

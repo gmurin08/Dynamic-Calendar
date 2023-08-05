@@ -8,6 +8,7 @@ export default function DailySchedule(props) {
     const [eveningTimes, setEveningTimes] = useState([])
     const [timesArr,setTimesArr] = useState([])
     const dtSelected = props.dtSelected
+
     useEffect(()=>{
         // Check for times here before setting to avoid undefined assignment
         setAfternoonTimes([]),setMorningTimes([]),setEveningTimes([])
@@ -34,19 +35,28 @@ export default function DailySchedule(props) {
 
 
   if(dtSelected){return (<>
-    <h2>Availability on {mth[dtSelected.getMonth()] + ", " + props.dtSelected.getDate() + " " + dtSelected.getFullYear()}</h2>
+    <h2>Availability on &nbsp;
+         <span className='date-span'>{mth[dtSelected.getMonth()] + " " + 
+        props.dtSelected.getDate() + ", " + dtSelected.getFullYear()}
+        </span>
+    </h2>
     <h3>Morning</h3>
+    <div className="time-container">
         {morningTimes?.length > 0  ? morningTimes.map((time,i)=>{
-            return <div key={i}>{time}</div>
-        }):(<div>Booked</div>)}
-    
+            return <div className='time-box' key={i}>{time}</div>
+        }):(<div className='booked-box'>Booked</div>)}
+    </div>
     <h3>Afternoon</h3>
+    <div className="time-container">
     {afternoonTimes?.length > 0  ? afternoonTimes.map((time,i)=>{
-            return <div key={i}>{time}</div>
-        }):(<div>Booked</div>)}
+            return <div className='time-box' key={i}>{time}</div>
+        }):(<div className='booked-box'>Booked</div>)}
+    </div>
     <h3>Evening</h3>
+    <div className="time-container">
     {eveningTimes?.length > 0 ? eveningTimes.map((time,i)=>{
-            return <div key={i}>{time}</div>
-        }):(<div>Booked</div>)}
+            return <div className='time-box' key={i}>{time}</div>
+        }):(<div className='booked-box'>Booked</div>)}
+    </div>
   </>)}
 }

@@ -3,9 +3,21 @@ import { times } from "../../times"
 export default function DateEntry(props) {
     const isActive = props.date.getMonth() === props.currDt.getMonth()
     const isAvailable = times?.get(props.date.getTime())?.times?.length > 0
-    const activeStyle = {color:"black"}
+    //const activeStyle = {color:"blue"}
     const inactiveStyle = {color:'gray'}
-    const selStyle = {color:'red'}
+    const selStyle = {    
+      outline: 'solid rgb(87, 76, 206) 1px',
+      borderRadius:' 50%',
+      color:'white',
+      backgroundColor:'rgb(87, 76, 206)'
+    }
+
+    const activeStyle = {    
+      outline: 'solid rgb(87, 76, 206) 1px',
+      borderRadius:' 50%',
+      color:'rgb(87, 76, 206)',
+      backgroundColor:'white'
+    }
     const isSelected = props.date == props.activeDt
     let style = {}
     if (isActive){
@@ -17,9 +29,10 @@ export default function DateEntry(props) {
     if((!isActive)||(isActive && !isAvailable)){
       style = inactiveStyle
     }
+
     
   return (
-    <div onClick={isActive && isAvailable ? ()=>props.setDtSelected(props.date):null}
+    <div className='dates' onClick={isActive && isAvailable ? ()=>props.setDtSelected(props.date):null}
      style={style}>
       {props.date.getDate()}
      </div>
