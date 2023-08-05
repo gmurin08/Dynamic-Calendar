@@ -1,3 +1,15 @@
+.calendar{
+    font-family:Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-  
+.calendar-nav-btn{
+    border:none;
+}
+
+.cal{
+    outline: solid blue 1px;
+}
   

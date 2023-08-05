@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react"
 import DateEntry from "./DateEntry"
-//import './calendar.css'
+import './calendar.css'
 import DailySchedule from "./DailySchedule"
 export default function Calendar() {
     const wkd = ['Su','Mo','Tu','We','Th','Fr','Sa']
@@ -55,13 +55,13 @@ export default function Calendar() {
  
   {
     return (<>
-    <div className="flip-card">
-        <div className="card-front">
+    <div className="calendar">
+        <div className="cal">
             <div className="front">
                 <table>
                     <thead>
                         <tr>
-                            <th colSpan={100}><h1>{mth[currDt.getMonth()] + " " + currDt.getFullYear()}</h1></th>
+                            <th colSpan={100}><h1 className="date-h1">{mth[currDt.getMonth()] + " " + currDt.getFullYear()}</h1></th>
                         </tr>
                         <tr >
                             {wkd.map((day, d)=>{
@@ -85,8 +85,8 @@ export default function Calendar() {
                         })}
                     </tbody>
                 </table>
-                <button onClick={()=>handleMonthButtonClick(-1)}>Prev</button>
-                <button onClick={()=>handleMonthButtonClick(1)}>Next</button>
+                <button className='calendar-nav-btn' onClick={()=>handleMonthButtonClick(-1)}>Prev</button>
+                <button className='calendar-nav-btn' onClick={()=>handleMonthButtonClick(1)}>Next</button>
             
             </div>
 
