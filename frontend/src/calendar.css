@@ -19,16 +19,15 @@
 .btn-container{
     padding-top: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 20px 30% 0px 30%;
     border-image: linear-gradient(to right, black, blue);
     padding-bottom: 30px;
+
 }
 
 
 .cal-ctr{
-    margin-left:auto;
-    margin-right:auto;
     width:100%;
 }
 
@@ -44,6 +43,8 @@
 .calendar-nav-btn{
     border:none;
     background-color: transparent;
+    padding-left: 70px;
+    padding-right: 70px;
 }
 
 .days{
@@ -57,7 +58,11 @@
     padding: 15px;
     margin:5px 10px ;
     width:20px;
+    font-size: 15px;
     height:20px;
+    border-radius: 50%;
+    -moz-border-radius:60%;
+    -webkit-border-radius: 50%;
 }
 
 .dates:hover{
@@ -70,6 +75,7 @@
 
 .front{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -100,13 +106,24 @@
 
 .time-container{
     display: flex;
-    grid-template-columns: 1fr 1fr  1fr 1fr;
+    grid-template-columns: 1fr 1fr  1fr;
 }
 
 @media only screen and (max-width: 600px) {
     .time-container{
         display: grid;
         grid-template-columns: 1fr 1fr;
+    }
+    .dates{
+        margin: 5px 5px;
+        padding:10px
+    }
+    .title-container{
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .cal-ctr{
+        width:100%
     }
   }
 

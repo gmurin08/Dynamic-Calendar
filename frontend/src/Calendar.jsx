@@ -87,8 +87,7 @@ export default function Calendar() {
                         })}
                     </tbody>
                 </table>
-            </div>
-            <div className="btn-container">
+                <div className="btn-container">
                 <button className='calendar-nav-btn' onClick={()=>handleMonthButtonClick(-1)}><img className='arrow'  src={back}/></button>
                 <button className='calendar-nav-btn' onClick={()=>handleMonthButtonClick(1)}><img className='arrow' src={forward}/></button>
             </div>
@@ -97,6 +96,8 @@ export default function Calendar() {
                 <DailySchedule dtSelected={dtSelected}/>
             }
             </div>
+            </div>
+
         </div>
     </div>
   </>)}

@@ -4,16 +4,16 @@ export default function DateEntry(props) {
     const isActive = props.date.getMonth() === props.currDt.getMonth()
     const isAvailable = times?.get(props.date.getTime())?.times?.length > 0
     //const activeStyle = {color:"blue"}
-    const inactiveStyle = {color:'gray'}
+    const inactiveStyle = {color:'gray', tranform:'none'}
     const selStyle = {    
-      outline: 'solid rgb(87, 76, 206) 1px',
-      borderRadius:' 50%',
+      border: 'solid rgb(87, 76, 206) 1px',
+      borderRadius:'50%',
       color:'white',
       backgroundColor:'rgb(87, 76, 206)'
     }
 
     const activeStyle = {    
-      outline: 'solid rgb(87, 76, 206) 1px',
+      border: 'solid rgb(87, 76, 206) 1px',
       borderRadius:' 50%',
       color:'rgb(87, 76, 206)',
       backgroundColor:'white'

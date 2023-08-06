@@ -35,11 +35,13 @@ export default function DailySchedule(props) {
 
 
   if(dtSelected){return (<>
+    <div className="title-container">
     <h2>Availability on &nbsp;
          <span className='date-span'>{mth[dtSelected.getMonth()] + " " + 
         props.dtSelected.getDate() + ", " + dtSelected.getFullYear()}
         </span>
     </h2>
+    
     <h3>Morning</h3>
     <div className="time-container">
         {morningTimes?.length > 0  ? morningTimes.map((time,i)=>{
@@ -57,6 +59,7 @@ export default function DailySchedule(props) {
     {eveningTimes?.length > 0 ? eveningTimes.map((time,i)=>{
             return <div className='time-box' key={i}>{time}</div>
         }):(<div className='booked-box'>Booked</div>)}
+    </div>
     </div>
   </>)}
 }
