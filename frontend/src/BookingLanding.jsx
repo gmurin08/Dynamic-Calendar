@@ -2,6 +2,7 @@ import profile from './assets/google.png'
 import map from './assets/map.png'
 import location from './assets/location.png'
 import hours from './assets/schedule.png'
+import {services} from '../../services.js'
 import AppointmentType from './AppointmentType'
 
 export default function BookingLanding() {
@@ -48,8 +49,10 @@ export default function BookingLanding() {
       <div className="booking-locations">
         {/* <button className='landing-location-btn'>Downtown</button>
         <button className='landing-location-btn'>On-Location</button> */}
-        <AppointmentType/>
-        <AppointmentType/>
+        {services.map((svc,i)=>{
+          return (<AppointmentType key={i} data={svc}/>)
+        })}
+
       </div>
     </div>
   </div>

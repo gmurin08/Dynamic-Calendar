@@ -9,10 +9,15 @@
     justify-content: left;
 }
 
+.appointment-description{
+    width:100%
+}
+
 .appointment-cta{
     color:rgb(87, 76, 206);
     font-weight: bold;
-    width:35%
+    width:35%;
+    text-align: right;
 }
 
 .appointment-description-price{
@@ -160,7 +165,7 @@
 .left{
     width:35%;
     display: flex;
-    justify-content: center;
+    justify-content: top;
     align-items: center;
     flex-direction: column;
 }
