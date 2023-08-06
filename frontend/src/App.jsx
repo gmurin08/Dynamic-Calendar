@@ -1,9 +1,10 @@
 import Calendar from "./Calendar"
+import BookingLanding from "./BookingLanding"
 function App() {
 
   return (
     <>
-      <Calendar />
+      <BookingLanding />
     </>
   )
 }
