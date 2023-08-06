@@ -1,10 +1,12 @@
-import Calendar from "./Calendar"
-import BookingLanding from "./BookingLanding"
+//import Calendar from "./Calendar"
+import Navbar from './Navbar'
+import {Outlet} from 'react-router-dom'
 function App() {
 
   return (
-    <>
-      <BookingLanding />
+    <> 
+      <Navbar />
+      <Outlet />
     </>
   )
 }

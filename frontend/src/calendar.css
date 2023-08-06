@@ -1,3 +1,46 @@
+.address > *{
+    padding-bottom:10px
+}
+
+.address-container{
+    width:65%;
+    padding-top:20px;
+    display: flex;
+    justify-content: left;
+}
+
+.appointment-cta{
+    color:rgb(87, 76, 206);
+    font-weight: bold;
+    width:35%
+}
+
+.appointment-description-price{
+    padding-top:15px
+}
+
+.appointment-description-time{
+    font-weight: bold;
+}
+
+.appointment-type-container{
+    border: 1px solid rgb(198, 198, 198);
+    border-radius: 8px;
+    padding:5px 20px 20px 20px;
+    margin-top:30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.appointment-type-container:hover{
+    cursor:pointer
+}
+
+.appointment-description-body{
+    width:85%
+}
+
 .arrow{
     width:20px;
 }
@@ -14,6 +57,21 @@
     border-radius: 10px;
     padding:5px;
     margin:5px;
+}
+
+.book-btn{
+    border: none;
+    background-color: rgb(87, 76, 206);
+    color: white;
+    width: 65%;
+    height:50px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.book-btn:hover{
+    background-color: rgb(87, 76, 206);
 }
 
 .btn-container{
@@ -80,7 +138,85 @@
     justify-content: center;
 }
 
+.landing-container{
+    padding-top: 40px;
+    display: flex;
+    font-family: Montserrat;
+}
 
+.landing-location-btn{
+    border:none;
+    padding-right:20px;
+    font-size: 17px;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+.landing-title-container{
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.left{
+    width:35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.location-icon{
+    filter: invert(91%) sepia(0%) saturate(1447%) hue-rotate(187deg) brightness(95%) contrast(72%);
+    width:20px;
+    height:20px;
+}
+
+.location-icon-container{
+    padding-right: 20px;
+}
+
+.logo-img{
+    width:70px;
+    border-radius: 50%;
+    border: .5px solid #c4c3c3;
+}
+
+.map-container{
+    width:65%
+}
+
+.map-container > img{
+    width:100%
+}
+
+.navbar-container{
+    font-family: Montserrat;
+    font-weight: bold;
+    color:rgb(87, 76, 206);
+    border-bottom: 1px solid rgb(202, 201, 201);
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.nav-body{
+    padding:40px;
+}
+
+.landing-notes{
+    padding-top: 25px;
+    padding-bottom: 25px;
+    width:65%
+}
+
+.right{
+    width:60%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 .schedule-container{
     padding-left: 20px;
 }
