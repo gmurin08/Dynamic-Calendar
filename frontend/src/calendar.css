@@ -39,7 +39,8 @@
 }
 
 .appointment-type-container:hover{
-    cursor:pointer
+    cursor:pointer;
+    border: 1px solid blue;
 }
 
 .appointment-description-body{

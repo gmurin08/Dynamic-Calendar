@@ -9,6 +9,7 @@ import ErrorPage from './ErrorPage.jsx'
 import BookingLanding from './BookingLanding'
 import './index.css'
 import Calendar from './Calendar.jsx'
+import BookingSidebar from './BookingSidebar.jsx'
 
 const router = createBrowserRouter([
   {
@@ -20,12 +21,12 @@ const router = createBrowserRouter([
       path: "/landing",
       element: <BookingLanding/>,
       },
-      {
-        path: "landing/schedule",
-        element: <Calendar/>
-      }
     ]
   },
+  {
+    path:"/booking",
+    element:<BookingSidebar/>,
+  }
 ])
 
 
