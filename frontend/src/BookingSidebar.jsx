@@ -1,9 +1,6 @@
 import './calendar.css' 
-import profile from './assets/google.png'
-import map from './assets/map.png'
-import location from './assets/location.png'
-import hours from './assets/schedule.png'
-import Calendar from './Calendar'
+import {services} from '../../services.js'
+import AppointmentPicker from './AppointmentPicker'
 import Navbar from './Navbar'
 
 export default function BookingSidebar() {
@@ -11,7 +8,7 @@ export default function BookingSidebar() {
     <Navbar/>
     <div className="landing-container">
     <div className="left">
-        <div className="logo-container">
+        {/* <div className="logo-container">
             <img className='logo-img' src={profile} alt="Logo Image" />
         </div>
         <h2>ABC Photgraphy Co.</h2>
@@ -42,7 +39,26 @@ export default function BookingSidebar() {
         </div>
         <div className="todays-hours">Open Today</div>
         <div className="schedule-days"></div>
+        </div> */}
+        <div className="progress-pane">
+            <div>Select Services</div>
+            <div>Select Location</div>
+            <div>Select Date and Time</div>
+            <div>Enter Your Details</div>
         </div>
+    </div>
+    <div className="right-booking">
+      <div className='landing-title-container'>
+        <h3>Book an appointment</h3>
+      </div>
+      <div className="booking-locations-booking">
+        {/* <button className='landing-location-btn'>Downtown</button>
+        <button className='landing-location-btn'>On-Location</button> */}
+        {services.map((svc,i)=>{
+          return (<AppointmentPicker key={i} data={svc}/>)
+        })}
+
+      </div>
     </div>
 </div>
   </>)
