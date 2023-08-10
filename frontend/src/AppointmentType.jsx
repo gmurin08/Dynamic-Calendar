@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export default function AppointmentType({data}) {
  const {name,description,price,duration_mins} = data
   return (
-    <Link style={{color:'inherit', textDecoration:'none'}} to={'../booking'}>
+    <Link style={{color:'inherit', textDecoration:'none'}} to={'../booking/categories'}>
     <div className='appointment-type-container'>
         <div className="appointment-description">
             <h4 className='appointment-description-title'>{name}</h4>

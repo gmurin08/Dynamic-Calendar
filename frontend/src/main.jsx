@@ -8,8 +8,9 @@ import App from './App.jsx'
 import ErrorPage from './ErrorPage.jsx'
 import BookingLanding from './BookingLanding'
 import './index.css'
-import Calendar from './Calendar.jsx'
-import BookingSidebar from './BookingSidebar.jsx'
+//import Calendar from './Calendar.jsx'
+import AppointmentPickerContainer from './AppointmentPickerContainer.jsx'
+import BookingSidebar from './BookingProgress.jsx'
 
 const router = createBrowserRouter([
   {
@@ -17,16 +18,23 @@ const router = createBrowserRouter([
     element: <App/>,
     errorElement: <ErrorPage/>,
     children:[
-      {
-      path: "/landing",
-      element: <BookingLanding/>,
-      },
+        {
+        path: "/landing",
+        element: <BookingLanding/>,
+        }, 
+        {
+          path:"/booking",
+          element:<BookingSidebar/>,
+          children:[
+              {
+                path:'/booking/categories',
+                element:<AppointmentPickerContainer/>
+              }
+          ]
+        }
     ]
   },
-  {
-    path:"/booking",
-    element:<BookingSidebar/>,
-  }
+
 ])
 
 

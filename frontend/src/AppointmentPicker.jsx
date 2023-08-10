@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
-import { useState, useEffect } from 'react'
+import { useState} from 'react'
 import './calendar.css'
 
-export default function AppointmentType({data}) {
+export default function AppointmentType({data, id}) {
  const {name,description,price,duration_mins} = data
  const [moreInfo, setMoreInfo] = useState(false)
-
+ const handleSelectedChange = (event) =>{
+    console.log(event.target.id)
+ }
  const handleMoreInfoClick = () =>{
     setMoreInfo(!moreInfo)
  }
@@ -14,7 +16,7 @@ export default function AppointmentType({data}) {
         <div className="appointment-description">
             <div className="appointment-picker-title-container">
                 <h4 className='appointment-description-title'>{name}</h4>
-                <input className='appointment-picker-checkbox' type="checkbox" />
+                <input id={id} onChange={handleSelectedChange} className='appointment-picker-checkbox' type="checkbox" />
             </div>
             <div className="appointment-picker-description-price-time">
                 <div className="appointment-description-price">

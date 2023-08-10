@@ -53,6 +53,14 @@
     justify-content: space-between;
 }
 
+.appointment-picker-container:hover{
+    border: 1px solid blue;
+}
+
+.apointment-picker-container-selected{
+    border: 1px solid blue;
+}
+
 .appointment-picker-title-container{
     display: flex;
     justify-content: space-between;
@@ -115,6 +123,21 @@
 
 .booking-locations-booking{
     width:100%
+}
+
+.booking-continue-btn{
+    border:none;
+    margin-right: 50px;
+    height:45%;
+    width:10%;
+    background-color: rgb(87,76,206);
+    border-radius: 10px;
+    color: white;
+    font-size:15px;
+}
+
+.booking-continue-btn:hover{
+    background-color: rgb(54, 43, 172);
 }
 
 .btn-container{
@@ -224,6 +247,19 @@
     border: .5px solid #c4c3c3;
 }
 
+.lower-nav{
+    border-top: 1px solid gray;
+    overflow: hidden;
+    background-color: white;
+    position: fixed; /* Set the navbar to fixed position */
+    bottom: 0; 
+    width: 100%; /* Full width */
+    height:80px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
 .map-container{
     width:65%
 }
@@ -256,9 +292,32 @@
     padding:40px;
 }
 
+.progress-item{
+    padding: 10px 0px 10px 0px;
+    color:gray;
+}
+
+.progress-active{
+    padding: 10px 0px 10px 0px;
+    text-decoration: underline;
+    color: rgb(87,76,206)
+}
+
+.progress-complete{
+    color:black;
+    text-decoration: none;
+}
+
+.progress-container{
+    padding-top: 40px;
+    display: flex;
+    font-family: Montserrat;
+    margin-bottom: 90px;
+}
+
 .progress-pane{
-    outline:solid red;
-    width:75%
+    width:75%;
+    font-weight: bold;
 }
 
 .landing-notes{
@@ -284,6 +343,7 @@
 .schedule-container{
     padding-left: 20px;
 }
+
 
 .time-box{
     background-color: rgb(87, 76, 206);
