@@ -8,7 +8,8 @@ import App from './App.jsx'
 import ErrorPage from './ErrorPage.jsx'
 import BookingLanding from './BookingLanding'
 import './index.css'
-//import Calendar from './Calendar.jsx'
+import Calendar from './Calendar.jsx'
+import AppointmentLocationPicker from './AppointmentLocationPicker.jsx'
 import AppointmentPickerContainer from './AppointmentPickerContainer.jsx'
 import BookingSidebar from './BookingProgress.jsx'
 
@@ -29,7 +30,16 @@ const router = createBrowserRouter([
               {
                 path:'/booking/categories',
                 element:<AppointmentPickerContainer/>
-              }
+              },
+              {
+                path:'/booking/location',
+                element:<AppointmentLocationPicker/>
+              },
+              {
+                path:'/booking/times',
+                element:<Calendar/>
+              },
+              
           ]
         }
     ]

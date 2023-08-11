@@ -57,7 +57,7 @@
     border: 1px solid blue;
 }
 
-.apointment-picker-container-selected{
+.appointment-picker-container-selected{
     border: 1px solid blue;
 }
 
@@ -121,19 +121,23 @@
     background-color: rgb(87, 76, 206);
 }
 
-.booking-locations-booking{
-    width:100%
+.booking-continue-a{
+    margin-right: 50px;
+    width:10%;
+    height:45%;
 }
+
+
 
 .booking-continue-btn{
     border:none;
-    margin-right: 50px;
-    height:45%;
-    width:10%;
+    height:100%;
     background-color: rgb(87,76,206);
     border-radius: 10px;
     color: white;
     font-size:15px;
+    text-decoration: none;
+    width: 100%;
 }
 
 .booking-continue-btn:hover{
@@ -148,6 +152,10 @@
     border-image: linear-gradient(to right, black, blue);
     padding-bottom: 30px;
 
+}
+
+.booking-locations-booking{
+    width:100%
 }
 
 
