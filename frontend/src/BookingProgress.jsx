@@ -1,11 +1,12 @@
 import './calendar.css' 
 import { useState } from 'react'
-import { Outlet, Link, useLocation } from 'react-router-dom'
+import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom'
 export default function BookingSidebar() {
   const [servicesSelected, setServicesSelected] = useState([])
   const [locationSelected, setLocationSelected] = useState({})
-  //cosnt [dateTimeSelected, setDateTimeSelected] = useState()
+  const [dateTimeSelected, setDateTimeSelected] = useState()
   const location = useLocation()
+  const navigate = useNavigate()
   const linkMap = new Map([
     ['/booking/categories','/booking/location'],
     ['/booking/location', '/booking/times'],
@@ -26,15 +27,30 @@ export default function BookingSidebar() {
       </div>
       <div className="right-booking">
 
-        <Outlet context={[servicesSelected, setServicesSelected, locationSelected, setLocationSelected]}/>
+        <Outlet context={[servicesSelected, setServicesSelected,
+                          locationSelected, setLocationSelected,
+                          dateTimeSelected, setDateTimeSelected]}/>
       </div>
     </div>
     <div className="lower-nav">
-      <Link 
-        to={linkMap.get(location.pathname)}
-        className='booking-continue-a'>
-        <button className='booking-continue-btn'>Continue</button>
-      </Link>
+    <div className="lower-nav-left">
+        {location.pathname != '/booking/categories' && <Link 
+          to={'..'}
+          onClick={(e) => {
+          e.preventDefault();
+          navigate(-1);
+        }}
+          className='booking-back-a'>
+          <button className='booking-back-btn'>Back</button>
+        </Link>}
+      </div>
+      <div className="lower-nav-right">
+        {(location.pathname == '/booking/categories' && servicesSelected.length > 0)&& <Link 
+          to={linkMap.get(location.pathname)}
+          className='booking-continue-a'>
+          <button className='booking-continue-btn'>Continue</button>
+        </Link>}
+      </div>
     </div>
   </>
   )

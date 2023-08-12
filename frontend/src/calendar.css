@@ -88,6 +88,12 @@
     padding-right: 10px;
 }
 
+.appointment-img > img{
+    width:90px;
+    padding-right: 20px;
+}
+
+
 .arrow{
     width:20px;
 }
@@ -121,13 +127,28 @@
     background-color: rgb(87, 76, 206);
 }
 
-.booking-continue-a{
+.booking-back-a{
     margin-right: 50px;
     width:10%;
     height:45%;
 }
 
+.booking-back-btn{
+    border: 2px solid rgb(87,76,206);
+    height:100%;
+    background-color: white;
+    border-radius: 10px;
+    color: rgb(87,76,206);
+    font-size:15px;
+    text-decoration: none;
+    width: 100%;
+}
 
+.booking-continue-a{
+    margin-right: 50px;
+    width:10%;
+    height:45%;
+}
 
 .booking-continue-btn{
     border:none;
@@ -265,7 +286,17 @@
     height:80px;
     display: flex;
     align-items: center;
-    justify-content: right;
+    justify-content: space-between;
+}
+
+.lower-nav-right{
+    margin-right: 40px;
+    height: 50%;
+}
+
+.lower-nav-left{
+    margin-left: 40px;
+    height: 50%;
 }
 
 .map-container{

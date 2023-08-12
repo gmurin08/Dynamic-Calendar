@@ -6,6 +6,8 @@ import './calendar.css'
 import back from './assets/left-arrow.png'
 import forward from './assets/right-arrow.png'
 import DailySchedule from "./DailySchedule"
+import { useOutletContext } from "react-router-dom"
+
 export default function Calendar() {
     const wkd = ['Su','Mo','Tu','We','Th','Fr','Sa']
     const mth = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -14,6 +16,7 @@ export default function Calendar() {
     const [done, setDone] = useState(false)
     const [currDt, setCurrDt] = useState(new Date());
     const [dtSelected, setDtSelected] = useState(null);
+    const [locationSelected, servicesSelected, setDateTimeSelected] = useOutletContext()
 
     const handleMonthButtonClick = inc =>{
         setOffset(offsetAmt=>offsetAmt+inc)
@@ -52,14 +55,13 @@ export default function Calendar() {
         setDone(true)
     },[offset])
 
-
     if(done)
- 
   {
     return (<>
     <div className="calendar">
         <div className="cal-ctr">
             <div className="front">
+            
                 <table>
                     <thead>
                         <tr className="head-container">
@@ -77,7 +79,7 @@ export default function Calendar() {
                                 row.map((col,j)=>{
                                 return(
                                     <td key={j}>
-                                        <DateEntry key={j} activeDt={dtSelected} 
+                                        <DateEntry key={j} activeDt={dtSelected} setDateTimeSelected={setDateTimeSelected}
                                         setDtSelected={setDtSelected} currDt={currDt} date={col}/>
                                     </td>
                                         )
@@ -90,9 +92,11 @@ export default function Calendar() {
                 <div className="btn-container">
                 <button className='calendar-nav-btn' onClick={()=>handleMonthButtonClick(-1)}><img className='arrow'  src={back}/></button>
                 <button className='calendar-nav-btn' onClick={()=>handleMonthButtonClick(1)}><img className='arrow' src={forward}/></button>
+
             </div>
             <div className="schedule-container">
             {dtSelected && 
+                
                 <DailySchedule dtSelected={dtSelected}/>
             }
             </div>

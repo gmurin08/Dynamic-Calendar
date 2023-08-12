@@ -1,6 +1,6 @@
 export const locations = [
     {
-        location_id:1,
+        l_id:1,
         housecall: false,
         name: "ABC Photography",
         address_1: "555 Grant St",
@@ -12,9 +12,9 @@ export const locations = [
         img:'./assets/map.png'
     },
     {
-        location_id:2,
+        l_id:2,
         name: "Your Location",
-        address_1: null,
+        address_1: "We'll Come To You!",
         address_2: null,
         city: null,
         state: null,

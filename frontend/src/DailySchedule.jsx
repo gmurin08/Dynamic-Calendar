@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import {times} from '../../times.js'
 import { useState,useEffect } from 'react'
-export default function DailySchedule(props) {
+export default function DailySchedule({setDateTimeSelected, ...props}) {
     const mth = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     const [morningTimes, setMorningTimes] = useState([])
     const [afternoonTimes, setAfternoonTimes] = useState([])
