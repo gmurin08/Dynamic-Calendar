@@ -4,7 +4,7 @@ import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom'
 export default function BookingSidebar() {
   const [servicesSelected, setServicesSelected] = useState([])
   const [locationSelected, setLocationSelected] = useState({})
-  const [dateTimeSelected, setDateTimeSelected] = useState()
+  const [dateTimeSelected, setDateTimeSelected] = useState("")
   const location = useLocation()
   const navigate = useNavigate()
   const linkMap = new Map([

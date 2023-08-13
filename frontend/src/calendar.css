@@ -222,6 +222,25 @@
     transform: scale(120%);
 }
 
+.date-active{
+    border: solid rgb(87, 76, 206) 1px;
+    border-radius:50%;
+    color:rgb(87, 76, 206);
+    background-color:white;
+}
+
+.date-selected{
+    border: solid rgb(87, 76, 206) 1px;
+    border-radius:50%;
+    color:white;
+    background-color:rgb(87, 76, 206);
+}
+
+.date-inactive{
+    color:gray;
+    transform: none;
+}
+
 .date-span{
     border-bottom: 1px solid blue;
 }
