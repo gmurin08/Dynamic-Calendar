@@ -20,7 +20,7 @@ export default function AppointmentType({servicesSelected, setServicesSelected, 
 
 
   return (
-    <div className={`appointment-picker-container ${(servicesSelected?.some(element => element.eid === eid)) &&
+    <div className={`appointment-picker-container ${servicesSelected?.some(element => element.eid === eid) &&
      'appointment-picker-container-selected'}`}>
         <div className="appointment-description">
             <div className="appointment-picker-title-container">

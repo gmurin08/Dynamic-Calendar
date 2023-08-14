@@ -12,6 +12,7 @@ import Calendar from './Calendar.jsx'
 import AppointmentLocationPicker from './AppointmentLocationPicker.jsx'
 import AppointmentPickerContainer from './AppointmentPickerContainer.jsx'
 import BookingSidebar from './BookingProgress.jsx'
+import Confirmation from './Confirmation.jsx'
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
               {
                 path:'/booking/times',
                 element:<Calendar/>
+              },
+              {
+                path:'/booking/confirmation',
+                element:<Confirmation/>
               },
               
           ]

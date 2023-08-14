@@ -3,7 +3,9 @@ import { locations } from "../../locations"
 import LocationPicker from "./Location.Picker"
 
 export default function AppoinmnetLocationPicker() {
-  const [locationSelected,setLocationSelected] = useOutletContext()
+  const [servicesSelected, setServicesSelected,
+    locationSelected, setLocationSelected,
+    dateTimeSelected, setDateTimeSelected] = useOutletContext()
   
   return (
     <div className='landing-title-container'>

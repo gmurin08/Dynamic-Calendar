@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react"
@@ -19,7 +20,9 @@ export default function Calendar() {
     const [currDt, setCurrDt] = useState(new Date());
     const [dtSelected, setDtSelected] = useState(null);
     //TODO: handle logic for conditional dates based on locationSelected and servicesSelected context.
-    const [dateTimeSelected, setDateTimeSelected] = useOutletContext()
+    const [servicesSelected, setServicesSelected,
+        locationSelected, setLocationSelected,
+        dateTimeSelected, setDateTimeSelected] = useOutletContext()
 
     const handleMonthButtonClick = inc =>{
         setOffset(offsetAmt => offsetAmt + inc)

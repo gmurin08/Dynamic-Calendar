@@ -3,7 +3,9 @@ import { services } from '../../services'
 import AppointmentPicker from './AppointmentPicker'
 import { useOutletContext } from 'react-router-dom'
 export default function AppointmentPickerContainer() {
-    const [servicesSelected,setServicesSelected] = useOutletContext()
+    const [servicesSelected, setServicesSelected,
+      locationSelected, setLocationSelected,
+      dateTimeSelected, setDateTimeSelected] = useOutletContext()
     
   return (<>
     <div className='landing-title-container'>
