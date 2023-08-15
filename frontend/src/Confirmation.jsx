@@ -15,7 +15,7 @@ export default function Confirmation() {
     <div>Refunds and cancellations are subject to the cancellation policy of (customer)
     Please contact (customer) to learn more about their privacy practices.</div>
 
-    <button>Book Appointment</button>
+    <button className="book-btn">Book Appointment</button>
 
     <div>By creating this appointment, you acknoledge that you will receive automated transational messages (customer)</div>
   </>)
